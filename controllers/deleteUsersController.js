@@ -1,11 +1,10 @@
 const model = require("../models/index");
 
 exports.index = async (req, res, next) => {
-    let firstName = req.query.key;
-    // console.log('firstName is ', firstName);
+    let username = req.query.key;
     try {
         await model.User.destroy({
-            where: { firstName: firstName }
+            where: { username: username }
         }).then(await function (rowDeleted) { // rowDeleted will return number of rows deleted
             console.log('rowDeleted ', rowDeleted);
             if (rowDeleted < 1) {

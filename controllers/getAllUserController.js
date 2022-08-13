@@ -1,9 +1,11 @@
 const model = require("../models/index");
 
 exports.index = async (req, res, next) => {
-    const users = await model.User.findAll();
+    try {
+        const users = await model.User.findAll();
 
-    res.status(200).json({
-        data: users,
-    });
+        return res.status(200).json({ users });
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
 };
