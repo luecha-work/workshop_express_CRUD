@@ -1,7 +1,7 @@
 const model = require("../models/index");
 
 exports.index = async (req, res, next) => {
-    // console.log('req.body ',req.body.firstName);
+
     if (req.body.fullName !== null && req.body.username
         && req.body.password !== null && req.body.email !== null) {
         try {
