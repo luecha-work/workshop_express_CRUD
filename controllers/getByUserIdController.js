@@ -3,6 +3,7 @@ const model = require("../models/index");
 exports.index = async (req, res, next) => {
     try {
         const { id } = req.params;
+        console.log("id ", id);
         const users = await model.User.findOne({
             where: { id: id }
         });
